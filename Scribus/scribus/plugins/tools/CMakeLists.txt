@@ -1,0 +1,12 @@
+#Subdirectories
+ADD_SUBDIRECTORY(2geomtools)
+ADD_SUBDIRECTORY(lenseffects)
+ADD_SUBDIRECTORY(pathconnect)
+ADD_SUBDIRECTORY(pathcut)
+ADD_SUBDIRECTORY(pathfinder)
+ADD_SUBDIRECTORY(pathstroker)
+ADD_SUBDIRECTORY(subdivide)
+if (HAVE_ASPELL)
+  ADD_SUBDIRECTORY(spellcheck)
+endif (HAVE_ASPELL)
+ADD_SUBDIRECTORY(transform)
