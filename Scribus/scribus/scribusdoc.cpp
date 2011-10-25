@@ -465,9 +465,17 @@ void ScribusDoc::init()
 	ParagraphStyle pstyle;
 	pstyle.setDefaultStyle(true);
 	pstyle.setName(CommonStrings::DefaultParagraphStyle);
+#ifdef WANT_PIN_CUBA
+	pstyle.setLineSpacingMode(ParagraphStyle::AutomaticLineSpacing);
+#else
 	pstyle.setLineSpacingMode(ParagraphStyle::FixedLineSpacing);
+#endif
 	pstyle.setLineSpacing(15);
+#ifdef WANT_PIN_CUBA
+	pstyle.setAlignment(ParagraphStyle::Justified);
+#else
 	pstyle.setAlignment(ParagraphStyle::Leftaligned);
+#endif
 	pstyle.setLeftMargin(0);
 	pstyle.setFirstIndent(0);
 	pstyle.setRightMargin(0);

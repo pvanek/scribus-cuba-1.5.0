@@ -16,9 +16,17 @@
 
 //Syntax: ATTRDEF( datatype, gettername, name, defaultvalue)
 
+#ifndef WANT_PIN_CUBA
 ATTRDEF(ParagraphStyle::LineSpacingMode, lineSpacingMode, LineSpacingMode, ParagraphStyle::FixedLineSpacing)
+#else
+ATTRDEF(ParagraphStyle::LineSpacingMode, lineSpacingMode, LineSpacingMode, ParagraphStyle::AutomaticLineSpacing)
+#endif
 ATTRDEF(double, lineSpacing, LineSpacing, 0.0)
+#ifndef WANT_PIN_CUBA
 ATTRDEF(ParagraphStyle::AlignmentType, alignment, Alignment, Leftaligned)
+#else
+ATTRDEF(ParagraphStyle::AlignmentType, alignment, Alignment, Justified)
+#endif
 ATTRDEF(int, opticalMargins, OpticalMargins, 0)
 ATTRDEF(int, hyphenationMode, HyphenationMode, 0)
 ATTRDEF(double, minWordTracking, MinWordTracking, 1.0)
