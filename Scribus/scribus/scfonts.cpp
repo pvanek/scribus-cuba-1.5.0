@@ -834,6 +834,9 @@ void SCFonts::GetFonts(QString pf, bool showFontInfo)
 {
 	showFontInformation=showFontInfo;
 	FontPath.clear();
+#ifdef WANT_PIN_CUBA
+	AddScalableFonts(QApplication::applicationDirPath());
+#else
 	ReadCacheList(pf);
 	ScCore->setSplashStatus( QObject::tr("Searching for Fonts") );
 	AddUserPath(pf);
@@ -862,6 +865,7 @@ void SCFonts::GetFonts(QString pf, bool showFontInfo)
 	for(fpi = FontPath.begin() ; fpi != fpend; ++fpi) 
 		AddScalableFonts(*fpi);
 #endif
+#endif // WANT_PIN_CUBA
 	updateFontMap();
 	WriteCacheList(pf);
 }
