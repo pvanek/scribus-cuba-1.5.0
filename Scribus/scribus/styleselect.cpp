@@ -195,6 +195,9 @@ StyleSelect::StyleSelect(QWidget* parent) : QWidget(parent)
 	strikeoutButton->setMenu(StrikePop);
 	strikeoutButton->setPopupMode(QToolButton::DelayedPopup);
 	ssLayout->addWidget( strikeoutButton );
+#ifdef WANT_PIN_CUBA
+	strikeoutButton->hide();
+#endif
 
 	OutlineVal = new OutlineValues( NULL );
 	OutlinePop = new QMenu();
