@@ -402,6 +402,13 @@ PropertiesPalette::PropertiesPalette( QWidget* parent) : ScrPaletteBase( parent,
 	ShapeGroupLayout->addWidget( EditShape );
 	pageLayout_2->addWidget( ShapeGroup );
 
+#ifdef WANT_PIN_CUBA
+	// do not allow to use anything else than square frame
+	ShapeGroup->hide();
+	SCustom->hide();
+	EditShape->hide();
+#endif
+
 	Layout13 = new QHBoxLayout;
 	Layout13->setSpacing( 2 );
 	Layout13->setMargin( 0 );
