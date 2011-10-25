@@ -7,6 +7,8 @@
 #its not likely 2.4.x will work any more
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6.0 FATAL_ERROR)
 
+option(WANT_PIN_CUBA "Custom build for PeopleInNeed.cz" FALSE)
+
 #IF(WIN32)
 #  IF (${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION} LESS 2.6)
 #    MESSAGE(FATAL_ERROR "Windows builds require CMake 2.6")
@@ -35,6 +37,16 @@ INCLUDE(CheckCCompilerFlag)
 INCLUDE(CheckCXXCompilerFlag)
 INCLUDE(CheckTypeSize)
 INCLUDE(TestBigEndian)
+
+
+
+# custom build for PeopleInNeed.cz
+if (WANT_PIN_CUBA)
+    add_definitions(-DWANT_PIN_CUBA)
+    message(STATUS "")
+    message(STATUS "Custom build for PeopleInNeed.cz is ON")
+    message(STATUS "")
+endif (WANT_PIN_CUBA)
 
 #Set the custom CMake module directory where our include/lib finders are
 SET(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/modules")
