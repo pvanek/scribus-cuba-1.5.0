@@ -282,7 +282,11 @@ void PrefsManager::initDefaults()
 	appPrefs.toolSettings.scaleX = 1;
 	appPrefs.toolSettings.scaleY = 1;
 	appPrefs.guidesSettings.before = true;
+#ifndef WANT_PIN_CUBA
 	appPrefs.docUnitIndex = 0;
+#else
+	appPrefs.docUnitIndex = 1;
+#endif
 	appPrefs.toolSettings.polyC = 4;
 	appPrefs.toolSettings.polyF = 0.5;
 	appPrefs.toolSettings.polyS = false;
